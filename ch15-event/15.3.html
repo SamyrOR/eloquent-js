@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <tab-panel>
+      <div data-tabname="one">Tab one</div>
+      <div data-tabname="two">Tab two</div>
+      <div data-tabname="three">Tab three</div>
+    </tab-panel>
+    <script>
+      function asTabs(node) {
+        let childs = Array.from(node.children);
+        for (let i = 0; i < childs.length; i++) {
+          let tabLink = document.createElement("button");
+          tabLink.innerText = childs[i].getAttribute("data-tabname");
+          node.appendChild(tabLink);
+          childs[i].style.display = "none";
+          tabLink.addEventListener("click", (e) => {
+            let tabName = e.currentTarget.innerText;
+            if (tabName === tabLink.innerText) {
+              childs[i - 1 || i + 1].style.display = "none";
+              childs[i].style.display = "block";
+            }
+          });
+        }
+      }
+      asTabs(document.querySelector("tab-panel"));
+    </script>
+  </body>
+</html>

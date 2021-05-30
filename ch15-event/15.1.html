@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>🎈</p>
+
+    <script>
+      // Your code here
+      let ballon = document.querySelector("p");
+      let size = 15;
+      function inflateBallon(event) {
+        event.preventDefault();
+        if (event.key === "ArrowUp") {
+          size += (size * 0, 10);
+          ballon.style.fontSize = `${size}px`;
+          console.log("triggered");
+        } else if (event.key === "ArrowDown") {
+          size -= (size * 0, 10);
+          ballon.style.fontSize = `${size}px`;
+        }
+        if (size >= 100) {
+          ballon.innerText = " 💥";
+          window.removeEventListener("keydown", inflateBallon);
+          let boom = document.createElement("p");
+          boom.innerText = "You inflate your balloon to much!";
+          document.body.appendChild(boom);
+        }
+      }
+      window.addEventListener("keydown", inflateBallon);
+    </script>
+  </body>
+</html>

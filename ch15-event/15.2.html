@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .trail {
+        /* className for the trail elements */
+        position: absolute;
+        height: 6px;
+        width: 6px;
+        border-radius: 3px;
+        background: teal;
+      }
+      body {
+        height: 300px;
+      }
+    </style>
+
+    <script>
+      // Your code here.
+      window.addEventListener("mousemove", (e) => {
+        let div = document.createElement("div");
+        div.classList.add("trail");
+        div.style.top = `${event.pageY}px`;
+        div.style.left = `${event.pageX}px`;
+        document.body.appendChild(div);
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>
