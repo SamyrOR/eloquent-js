@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="1200" height="150"></canvas>
+    <canvas width="1200" height="150"></canvas>
+
+    <script>
+      let cx = document.querySelector("canvas").getContext("2d");
+      cx.strokeRect(10, 10, 50, 50);
+      cx.beginPath();
+      cx.moveTo(150, 10);
+      cx.lineTo(90, 10);
+      cx.lineTo(70, 60);
+      cx.lineTo(170, 60);
+      cx.lineTo(150, 10);
+      cx.stroke();
+      cx.drawImage();
+      cx.rotate(0.8);
+      cx.translate(-30, -170);
+      cx.fillStyle = "red";
+      cx.fillRect(190, 10, 50, 50);
+      let cx2 = document.querySelectorAll("canvas")[1].getContext("2d");
+
+      cx2.beginPath();
+      cx2.moveTo(10, 10);
+      let y = 15;
+      for (let i = 1; i < 13; i++) {
+        if (i % 2 != 0) {
+          cx2.lineTo(100, y);
+        } else {
+          cx2.lineTo(10, y);
+        }
+        y += 7;
+      }
+      cx2.stroke();
+      cx2.beginPath();
+      cx2.moveTo(130, 50);
+      let r = 40;
+      for (let i = 0; i < 13; i++) {
+        cx2.arc(150, 50, r, 0, 7);
+        r -= 3;
+      }
+      cx2.stroke();
+    </script>
+  </body>
+</html>
