@@ -1,0 +1,16 @@
+<textarea id="code">return "hi";</textarea>
+<button id="button">Run</button>
+<pre id="output"></pre>
+
+<script>
+  // Your code here.
+  let code = document.querySelector("#code").innerHTML;
+  let arrayCode = code.split(" ");
+  let output = document.querySelector("#output");
+  console.log(arrayCode[1]);
+  let btn = document.querySelector("#button");
+  btn.addEventListener("click", () => {
+    let func = new Function("arg", `${arrayCode[0]} arg`);
+    output.innerText = func(arrayCode[1].re);
+  });
+</script>
