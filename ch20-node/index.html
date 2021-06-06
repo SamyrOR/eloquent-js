@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Server content:</h1>
+    <p></p>
+    <script>
+      let p = document.querySelector("p");
+      console.log(p);
+      fetch("http://localhost:8000/data")
+        .then((response) => response.text())
+        .then((text) => (p.innerText = text));
+    </script>
+  </body>
+</html>
